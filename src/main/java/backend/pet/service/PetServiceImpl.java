@@ -38,4 +38,31 @@ public class PetServiceImpl implements PetService{
         petRepository.save(petEntity);
         return pet;
     }
+
+    @Override
+    public Pet getPetById(Integer petId) {
+        PetEntity petEntity = petRepository.findById(petId).get();
+        Pet pet = new Pet();
+        BeanUtils.copyProperties(petEntity, pet);
+        return pet;
+    }
+
+    @Override
+    public Pet updatePet(Integer petId, Pet pet) {
+        PetEntity petEntity = petRepository.findById(petId).get();
+        petEntity.setAge(pet.age);
+        petEntity.setGender(pet.gender);
+        petEntity.setName(pet.name);
+        petEntity.setOwner(pet.owner);
+        petEntity.setType(pet.type);
+        return pet;
+    }
+
+    @Override
+    public String deletePet(Integer petId) {
+        petRepository.deleteById(petId);
+        return "Deleted Successfully !";
+    }
+
+    
 }
