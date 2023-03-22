@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 public class PetEntity {
@@ -14,6 +15,7 @@ public class PetEntity {
     public String name;
     public String owner;
     public String age;
+   @NotBlank(message = "Please Specify Type Of Pet")
     public String type;
     public String gender;
     public PetEntity() {

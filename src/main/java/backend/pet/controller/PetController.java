@@ -1,8 +1,6 @@
 package backend.pet.controller;
 
 import java.util.List;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import backend.pet.model.Pet;
 import backend.pet.service.PetService;
+import jakarta.validation.Valid;
 
 @RestController
 public class PetController {
@@ -26,7 +25,7 @@ public class PetController {
         return petService.getAllPets();
     }
     @PostMapping("/pets")
-    public Pet createPet(@RequestBody Pet pet){
+    public Pet createPet(@Valid @RequestBody Pet pet){
         return petService.createPet(pet);
     }
 
@@ -36,7 +35,7 @@ public class PetController {
     }
 
     @PutMapping("/pets/{id}")
-    public Pet updatePet(@PathVariable("id") Integer petId, @RequestBody Pet pet){
+    public Pet updatePet(@Valid @PathVariable("id") Integer petId, @RequestBody Pet pet){
         return petService.updatePet(petId,pet);
     }
 
