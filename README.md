@@ -23,3 +23,6 @@ Screenshots :
 
 - DELETE: `/pets/id`
 ![image](https://user-images.githubusercontent.com/104594678/226136178-954bd796-936d-4b0d-8e82-8d2271c09a6e.png)
+
+- Actuator `/actuator/health`
+![image](https://user-images.githubusercontent.com/104594678/229874695-547cb937-dbf7-4034-8345-a44d281056ea.png)
