@@ -2,6 +2,7 @@ package backend.pet.controller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +16,7 @@ import backend.pet.service.PetService;
 import jakarta.validation.Valid;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 public class PetController {
 
     @Autowired
@@ -40,7 +42,7 @@ public class PetController {
     }
 
     @DeleteMapping("/pets/{id}")
-    public String deletePet(@PathVariable("id") Integer petId){
+    public Pet deletePet(@PathVariable("id") Integer petId){
         return petService.deletePet(petId);
     }
 }

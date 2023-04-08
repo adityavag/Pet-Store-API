@@ -59,9 +59,12 @@ public class PetServiceImpl implements PetService{
     }
 
     @Override
-    public String deletePet(Integer petId) {
+    public Pet deletePet(Integer petId) {
+        PetEntity petEntity = petRepository.findById(petId).get();
+        Pet pet = new Pet();
+        BeanUtils.copyProperties(petEntity, pet);
         petRepository.deleteById(petId);
-        return "Deleted Successfully !";
+        return pet;
     }
 
     

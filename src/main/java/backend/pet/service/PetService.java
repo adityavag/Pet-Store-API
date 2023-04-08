@@ -14,7 +14,7 @@ public interface PetService {
 
     Pet updatePet(Integer petId, Pet pet);
 
-    String deletePet(Integer petId);
+    Pet deletePet(Integer petId);
 
     
 }
