@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import backend.pet.model.Pet;
 import backend.pet.service.PetService;
-import jakarta.validation.Valid;
+import javax.validation.Valid;
 
 @RestController
 @CrossOrigin(origins = {"http://localhost:3000","https://pestore.vercel.app/"})
